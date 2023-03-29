@@ -1,0 +1,82 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+<div class="sidebarPrincipal">
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                   
+                </span>
+    
+                <div class="text logo-text">
+                    <span class="logo">
+                        <!--<img src="/assets/img/logo.png" style="width: 70%" alt="">-->
+                        
+                    </span>
+                </div>
+            </div>
+            <i class="fa-solid fa-bars toggle"></i>
+        </header>
+    
+        <div class="menu-bar">
+            <div class="menu">
+    
+                
+    
+                <ul class="menu-links">
+
+                    
+                    <li class="nav-link">
+                        <a href="/dashboard">
+                            <i id="icon_active" class="fa-solid fa-chart-line icon"></i>
+                            <span id="links_name" class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    
+    
+                    <li class="nav-link">
+                        <a href="#">
+                            <i id="icon_active" class="fa-solid fa-laptop-code icon"></i>
+                            <span id="links_name" class="text nav-text">Equipamentos</span>
+                        </a>
+                    </li>
+
+                    {% if request.user.is_superuser or request.user.is_admin or request.user.is_gestao %}
+                    <li class="nav-link">
+                        <a href="#">
+                            <i id="icon_active" class="fa-solid fa-user-plus icon"></i>
+                            <span id="links_name" class="text nav-text">Adicionar Usuários</span>
+                        </a>
+                    </li>
+                    {% endif %}
+    
+              
+
+                </ul>
+            </div>
+    
+            <div class="bottom-content">
+                <li class="nav-link" id="nav-linkSair">
+                    <a href="#">
+                        {% if user.is_authenticated %}
+                            <form method="post" action="{% url 'account_logout' %}">
+                                {% csrf_token %}
+                                {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                                {% endif %}
+                                <button class="button-sair" type="submit">						
+                                    <i id="icon_active" class="fa-solid fa-right-from-bracket icon"></i>
+                                    <span id="links_name" class="text nav-text">Sair</span>				
+                                </button>
+                            </form>
+                        {% endif %}
+                    </a>
+                </li>
+    
+                
+            </div>
+        </div>
+    
+    </nav>

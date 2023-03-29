@@ -1,0 +1,408 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+:root {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --text-color: #707070;
+    --texthover-color: #FFF;
+    --logo-spyfruitazul-color: #0288e0;
+    --logo-spyfruit-color: #8ec14b;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --hover-color: #8ec14b;
+    --icon-color: #707070;
+    --icon-change: #707070;
+
+    /* ====== Transition ====== */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+
+    /* ===== Border ===== */
+    --border: 1px solid rgba(0, 0, 0, 0.1);
+
+    /* ===== Box Shadow ===== */
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: var(--tran-02) linear;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+body.active {
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    --icon-color: #fff;
+    --icon-change: #fff;
+    --hover-color: #fff;
+
+
+    /* ===== Border ===== */
+    --border: 1px solid rgba(117, 112, 112, 0.1);
+
+    /* ===== Box Shadow ===== */
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+body.verde {
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #ec7d16;
+    --text-color: #707070;
+    --texthover-color: #FFF;
+    --logo-spyfruitazul-color: #0288e0;
+    --logo-spyfruit-color: #8ec14b;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --hover-color: #fff;
+    --icon-color: #d80404;
+    --icon-change: #707070;
+
+    /* ====== Transition ====== */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+
+    /* ===== Border ===== */
+    --border: 1px solid rgba(0, 0, 0, 0.1);
+
+    /* ===== Box Shadow ===== */
+    --box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.col-auto i {
+    color: #fff;
+}
+
+.row #card-realizado {
+    color: #fff;
+    background-color: #198754;
+    box-shadow: 10px 5px 5px rgb(197, 197, 197);
+}
+
+
+.row #card-pendente {
+    color: #fff;
+    background-color: #d8a714;
+    box-shadow: 10px 5px 5px rgb(197, 197, 197);
+}
+
+.row #card-naorealizado {
+    color: #fff;
+    background-color: #dc3545;
+    box-shadow: 10px 5px 5px rgb(197, 197, 197);
+}
+
+.row #card-equipamentos {
+    color: #fff;
+    background-color: #0d6efd;
+    box-shadow: 10px 5px 5px rgb(197, 197, 197);
+}
+
+.card-body #table-equip {
+    border-collapse: collapse;
+}
+
+.card-body #table-equip thead {
+    background-color: var(--logo-spyfruit-color);
+    color: white;
+}
+
+.card-body #table-equip thead tr th {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.35px;
+    color: #fff;
+    padding: 12px;
+    vertical-align: top;
+    border: 1px solid #668a37;
+    text-align: center;
+}
+
+.card-body #table-equip tbody tr td {
+    background-color: #fff;
+    text-align: center;
+    padding: 8px;
+    letter-spacing: 0.35px;
+    border: 1px solid #a5a7a3;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+}
+
+#title_dash {
+    color: var(--hover-color);
+    text-transform: none;
+    text-align: left;
+    margin: 0 100px 0 0;
+}
+
+
+.row #card-profile {
+    margin-left: 30%;
+    color: var(--hover-color);
+    height: 100%;
+    background-image: linear-gradient(#0288e0, #fff, #fff, #fff);
+    box-shadow: 10px 5px 5px rgb(197, 197, 197);
+    width: 35%;
+    border-radius: 15px;
+    border-top: none;
+    border-bottom: none;
+}
+
+.row #card-profile .profilePic {
+    margin-top: 60px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.row #card-profile .nome {
+    margin-top: 10px;
+    color: #5d5e5f;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.row #card-profile .cargo {
+    color: #888887;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.row #card-profile .bio {
+    margin-top: 20px;
+    border: 1px solid #1975b3;
+
+}
+
+.row #card-profile .btnEntrar {
+    margin-top: 20px;
+    margin-bottom: -10px;
+    width: 250px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #87c8f3, #1975b3);
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+}
+
+.row #card-profile .btnEntrar:hover {
+    transition: var(--tran-06);
+    background-image: linear-gradient(to bottom, #1975b3, #87c8f3);
+}
+
+#text-chart-empty {
+    margin-top: 90px;
+}
+
+.dimensionando-titulo-direito {
+    margin-bottom: -35px;
+}
+
+
+#iconQuestion {
+    color: var(--hover-color);
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 10px;
+
+}
+
+#iconQuestion:hover {
+    color: #a3cf69;
+}
+
+#modalMain {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modalChart {
+    background-color: var(--hover-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#modalMain #modalChart p {
+    margin-top: 45px;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#closeBtn {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#closeBtn:hover,
+#closeBtn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#iconQuestion {
+    color: var(--hover-color);
+    position: absolute;
+    margin-top: 17px;
+    margin-left: 10px;
+
+}
+
+#iconQuestion:hover {
+    color: #a3cf69;
+}
+
+#iconQuestion2 {
+    color: var(--hover-color);
+
+}
+
+#iconQuestion2:hover {
+    color: #a3cf69;
+}
+
+#modalMain2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#modalChart2 {
+    background-color: var(--hover-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+#modalMain2 #modalChart2 p {
+    margin-top: 45px;
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#closeBtn2 {
+    color: #fff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#closeBtn2:hover,
+#closeBtn2:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#todosDrops ul#ulDropMain {
+    list-style: none;
+}
+
+#todosDrops ul#ulDropMain li#liDropMain {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: -10px;
+}
+
+
+.chart-area {
+    margin: 20px;
+}
+
+.chart-area canvas {
+    margin-top: 20px;
+}
+
+#headerGrafico {
+    margin-bottom: 150px;
+}
+
+#dataEscolha {
+    border: 2px solid rgb(130, 126, 126);
+    z-index: 1000;
+    position: absolute;
+}
+
+#btn_salvaData {
+    margin-left: 160px;
+    position: absolute;
+
+}
+
+#todosDrops ul#ulDropMain {
+    list-style: none;
+}
+
+#todosDrops ul#ulDropMain li#liDropMain {
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: -10px;
+}
+
+#datepicker {
+    border: 2px solid #178c6f;
+    padding: 10px;
+    border-radius: 14px;
+}

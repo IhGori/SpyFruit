@@ -1,0 +1,145 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+<title>{% block head_title %}SpyFruitCadastro{% endblock %}</title>
+{% load tags_especiais %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SpyFruitLogin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--Boxicon Link-->
+    <link rel="stylesheet" href="{% static '/css/boxicons-2.1.4/css/boxicons.min.css' %}"> 
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <!--Importação do Bootstrap 5-->
+    <link rel="stylesheet" href="{% static '/bootstrap-5.0.2/dist/css/bootstrap.min.css' %}"> 
+    
+
+    
+    <!--Importação do DataTables-->
+    <link rel="stylesheet" type="text/css" src="{% static '/DataTable/datatables.min.css' %}">
+
+    
+    <link rel="stylesheet" href="{% static '/css/accounts/logout.css' %}"> 
+
+    <!--Importação DateTime-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+
+</head>
+<body> 
+  <meta http-equiv='refresh' content='0; URL=login/'>
+    {% if submitted %}
+      <p>Usuário cadastrado com sucesso!</p>
+    {% endif %}
+
+  <div class="container">
+
+    <div class="header">
+      <h2>Cadastro de Usuário</h2>
+    </div>
+
+    <form class="signup form" enctype="multipart/form-data" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      
+      {% csrf_token %}
+
+      <div class="form-control">
+          <label for="nome">Usuário</label>
+          {{ form.username }}
+          <i id="iconSignup" class="fas fa-exclamation-circle"></i>
+          <i id="iconSignup" class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
+      </div>
+
+      <div class="form-control">
+          <label for="nome">E-mail</label>
+          {{ form.email }}
+          <i id="iconSignup" class="fas fa-exclamation-circle"></i>
+          <i id="iconSignup" class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
+      </div>
+
+      <div class="form-control" id="choiceCargo">
+          <label for="descricao">Cargo</label>
+          <ul class="list-group list-group-horizontal">
+              <li class="list-group-item">Admin {{ form.is_admin }}</li>
+              <li class="list-group-item">Gestão {{ form.is_gestao }}</li>
+              <li class="list-group-item">Operação {{ form.is_operacao }}</li>
+              <li class="list-group-item">Painel {{ form.is_painel }}</li>
+          </ul>
+          <i id="iconSignup" class="fas fa-exclamation-circle"></i>
+          <i id="iconSignup" class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
+      </div>
+
+      <div class="form-control" id="setorUser">
+          <label for="descricao">Setor</label>
+          {{ form.setor_usuario }}                    
+          <i id="iconSignup" class="fas fa-exclamation-circle"></i>
+          <i id="iconSignup" class="fas fa-check-circle"></i>
+          <small>Mensagem de erro</small>
+      </div>
+
+      <div class="form-control" id="password">
+        <label for="descricao">Senha</label>
+        {{ form.password1}}                    
+        <i id="iconSignup" class="fas fa-exclamation-circle"></i>
+        <i id="iconSignup" class="fas fa-check-circle"></i>
+        <small>Mensagem de erro</small>
+    </div>
+
+    <div class="form-control" id="password">
+      <label for="descricao">Confirmação de Senha</label>
+      {{ form.password2}}                    
+      <i id="iconSignup" class="fas fa-exclamation-circle"></i>
+      <i id="iconSignup" class="fas fa-check-circle"></i>
+      <small>Mensagem de erro</small>
+  </div>
+
+      <button type="submit" id="btnAtualizar">Cadastro</button>
+    </form>
+
+  </div>
+   <!--Scripts gerais-->
+    
+    <!--Script JQuery-->
+    <script src="{% static '/js/jquery-3.6.0.js' %}"></script>
+    
+
+    <script src="{% static '/js/base.js' %}"></script>
+    <script src="{% static '/js/colorSwitcher.js' %}"></script>
+    <script src="{% static '/js/profilePic.js' %}"></script>
+    <script src="{% static '/js/kanban.js' %}"></script>
+
+    <script src="{% static '/js/accounts/signup.js' %}"></script>
+    
+
+
+    <!--Importação do ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <!--Importação Script BootStrap-->
+    <script type="text/javascript" src="{% static '/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <!--Importação Script DataTables-->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
+    
+    <!--Importações para exportar-->
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    
+    <!--Importação para DateTime range-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    
+    <!--Boxicon Link-->
+    <link rel="stylesheet" href="{% static '/css/boxicons-2.1.4/css/boxicons.min.css' %}"> 
+
+    <!--FontAwesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    
+    <!--Importação do Bootstrap 5-->
+    <link rel="stylesheet" href="{% static '/bootstrap-5.0.2/dist/css/bootstrap.min.css' %}"> 
+    
+    <!--CSS Adicional--> 
+    
+    <link rel="stylesheet" href="{% static '/css/spyFruit/base.css' %}"> 
+
+
+    
+
+    
+    <!--Importação do DataTables-->
+    <link rel="stylesheet" type="text/css" src="{% static '/DataTable/datatables.min.css' %}">
+
+    <!--Importação DateTime-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+  
+
+
+    
+    <!--Styles específicos das páginas-->
+    {% block stylesheets %}
+
+    {% endblock stylesheets %}
+
+  
+    <title>SpyFruit</title>
+</head>
+<body> 
+ 
+        {% include 'spyFruit/sidebar.html' %}
+   
+        <div class="home-content">
+
+        
+      
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+
+
+    <!--Scripts gerais-->
+    
+    <!--Script JQuery-->
+    <script src="{% static '/js/jquery-3.6.0.js' %}"></script>
+    
+
+    <script src="{% static '/js/spyFruit/base.js' %}"></script>
+    
+
+
+    <!--Importação do ChartJS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <!--Importação Script BootStrap-->
+    <script type="text/javascript" src="{% static '/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js' %}"></script>
+    
+    <!--Importação Script DataTables-->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.12.1/datatables.min.js"></script>
+    
+    <!--Importações para exportar-->
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    
+    <!--Importação para DateTime range-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+
+
+    <!--Scripts específicos das páginas-->
+    {% block scripts %}
+        
+    {% endblock scripts %}
+</body>
+</html>

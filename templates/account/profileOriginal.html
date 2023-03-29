@@ -1,0 +1,87 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}{% endblock %}
+{% load tags_especiais %}
+
+<!--Styles específicos das páginas-->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static '/css/dashboard/dashboard.css' %}">
+{% if not request.user.is_painel %}
+    <link rel="stylesheet" href="{% static '/css/dashboard/dashboard.css' %}">
+
+{% else %}
+    <link rel="stylesheet" href="{% static '/css/dashboard/dashboardPainel.css' %}">     
+{% endif %} 
+
+{% endblock stylesheets %}
+
+{% block content %}
+<div class="row mb-12">
+            
+    <!--col-xl-3 col-md-6 mb-4-->
+    <div class="">
+      <div class="card" id="card-profile">
+        <div class="circle"></div>
+        <div class="card-body">
+          <div class="row align-items-center">
+            <div class="col mr-2">
+                
+                {% if user.profile_pic %}
+                    <div class="profilePic" id="profilePic">
+                        <img src="{{user.profile_pic.url}}" alt="" style="width: 100px; height: 100px;">
+                    </div>
+                {% endif %}
+
+                <div class="nome">
+                    {{user.first_name}} {{user.last_name}}
+                </div>
+
+                <div class="cargo">
+                    {% if request.user.is_admin %}
+                        <span class="cargoUsuario">ADMIN</span>
+                    {% elif request.user.is_operacao %}
+                        <span class="cargoUsuario">OPERAÇÃO</span>
+                    {% elif request.user.is_gestao %}
+                        <span class="cargoUsuario">GESTÃO</span>
+                    {% elif request.user.is_painel %}
+                        <span class="cargoUsuario">PAINEL</span>
+                    {% else %}
+
+                    {% endif %}
+                </div>
+
+                <div class="setor">
+                    {% if user.setor %}
+                        {{user.setor_usuario}}
+                    {% else %}
+                        <span>Setor não definido</span>
+                    {% endif %}
+                </div>
+
+                <!--Se não estiver vazio a biografia aparecer a div-->
+                {% if user.bio != '' %}
+                        <div class="bio">
+                            <span class="bioUser">{{request.user.bio}}</span>
+                        </div>
+                {% endif %}
+
+                <button class="btnEntrar" type="submit"><a href="/update_profile/{{user.usuario_id}}">Atualizar Perfil</a></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  
+    
+    <!--Scripts específicos das páginas-->
+    {% block scripts %}
+
+    
+    {% endblock scripts %}
+
+{% endblock %}

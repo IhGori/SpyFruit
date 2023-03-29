@@ -1,0 +1,84 @@
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}Perfil{% endblock %}
+
+<!--Styles específicos das páginas-->
+{% block stylesheets %}
+<link rel="stylesheet" href="{% static '/css/qrstatus/new_equipment.css' %}">
+<link rel="stylesheet" href="{% static '/css/accounts/profile.css' %}">     
+
+{% if not request.user.is_painel %}
+    <link rel="stylesheet" href="{% static '/css/kanban/kanban.css' %}">
+
+{% else %}
+    <link rel="stylesheet" href="{% static '/css/kanban/kanbanPainel.css' %}">
+{% endif %} 
+
+{% endblock stylesheets %}
+
+{% block content %}
+
+
+    <div class="container" id="containerProfile">
+  
+
+
+          
+          <div class="form-control">
+            <div class="foto">
+                {% if user.profile_pic %}
+                <img src="{{user.profile_pic.url}}" alt="" class="img_user">
+                {% else %}
+                <img src="{% static '/img/blank_user.png' %}" alt="" class="img_user">
+                {% endif %}
+            </div>
+          
+
+
+            <div class="nome spacing_user">
+                {{ user.first_name }} {{ user.last_name }}
+            </div>
+
+            <div class="email" style="margin-top: 20px;">
+                {% if user.email %}
+                    {{ user.email }}
+                    {% else %}
+                {% endif %}
+            </div>
+
+            <div class="cargo spacing_user">
+                {% if request.user.is_admin %}
+                    <span class="cargoUsuario">ADMIN</span>
+                {% elif request.user.is_operacao %}
+                    <span class="cargoUsuario">OPERAÇÃO</span>
+                {% elif request.user.is_gestao %}
+                    <span class="cargoUsuario">GESTÃO</span>
+                {% elif request.user.is_painel %}
+                    <span class="cargoUsuario">PAINEL</span>
+                {% else %}
+
+                {% endif %}
+            </div>
+            
+            <div class="setor spacing_user">
+                {{user.setor_usuario.nome}}
+            </div>
+          </div>
+
+  
+          <a href="/update_profile/{{user.usuario_id}}"><button type="submit" id="btnAtualizar">Atualizar Perfil</button></a>
+
+   
+        
+    </div>
+
+
+    <!--Scripts específicos das páginas-->
+    {% block scripts %}
+
+    
+    {% endblock scripts %}
+
+{% endblock %}

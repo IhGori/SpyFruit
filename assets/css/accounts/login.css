@@ -1,0 +1,350 @@
+:root{
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --text-color: #707070;
+    --texthover-color: #FFF;
+    --logo--color: #7133b8;
+    --logo-3-color: #652dad;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --hover-color: #9d26a1; 
+    --icon-color : #707070;
+    --icon-change: #707070;
+
+    /* ====== Transition ====== */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+
+    /* ===== Border ===== */
+    --border: 1px solid rgba(0,0,0,0.1);
+    --border-table: 1px solid #878484;
+
+    /* ===== Box Shadow ===== */
+    --box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+body.active{
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+    --icon-color : #fff;
+    --icon-change: #fff;
+    --hover-color: #fff; 
+
+
+    /* ===== Border ===== */
+    --border: 1px solid rgba(117, 112, 112, 0.1);
+
+    /* ===== Box Shadow ===== */
+    --box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body
+{
+    background-image: url("/assets/img/background/2207_w026_n002_2235b_p1_2235.jpg");
+    /*Imagem de upklyak no Freepik*/ /*Colocar crétidos do background em algum lugar dps*/
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    max-width:400px;
+    border-radius: 20px;
+} 
+
+/* Card principal de login */
+.card{
+    border-radius: 50%;
+    height:370px;
+    background-image: linear-gradient(to bottom right, #a961fc, #9d4bfd,  #9847f8, #7e2fd7, #7e31d4, #7e31d4, #7e31d4);
+    border:none;
+    overflow: hidden;
+    box-shadow: 0 5px 8px #414141;
+    z-index:0;
+    box-sizing: border-box;
+}
+/*.circle{
+    position:absolute;
+    bottom:-230px;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    clip-path:circle(50%);
+    height:700px;
+    width:700px;
+    z-index:-1;
+    overflow:hidden;
+}*/
+
+/*Header*/
+.myHed{
+    margin-top: 0px;
+    font-size: 32px;
+    margin-bottom:10px;
+    font-weight:700;
+    background-image: linear-gradient(to right, #8ec14b, #7aa541);
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+.far{
+    font-size:40px;
+}
+
+.inputs_center{
+    display: block;
+    margin-left: 57px;
+}
+
+
+#user-icon{
+    color:rgb(144, 67, 189);
+    position: absolute;
+    margin-top: 14px;
+    margin-left: -120px;
+}
+
+#user-pass{
+    color:rgb(144, 67, 189);
+    position: absolute;
+    margin-top: 68px;
+    margin-left: -120px;
+}
+
+button{
+    margin-top: 20px;
+    width:250px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #f0f7e7, #d9ddd3);
+    color:#fff;
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+}
+
+
+
+
+
+
+
+label{
+    display: none;
+}
+
+input{
+    margin-top: 120px;
+}
+
+input#id_remember{
+    display: none;
+}
+
+input#id_login{
+    width:220px;
+    padding:10px;
+    padding-left:40px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #f3f3f3, #e2e4e0);
+    color:rgb(199, 114, 248);
+    border:none;
+    display: block;
+}
+input#id_login::placeholder{
+    color:rgb(144, 67, 189);
+    opacity: 0.6;
+}
+input#id_login:focus{
+    border:none;
+    outline:none;   
+}
+
+input#id_login::selection{
+    color: red;
+}
+
+input#id_password{
+    width:220px;
+    margin-top: -5px;
+    padding:10px;
+    padding-left:40px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #f3f3f3, #e2e4e0);
+    color:rgb(199, 114, 248);
+    border:none;
+    display: block;
+}
+input#id_password::placeholder{
+    color:rgb(144, 67, 189);
+    opacity: 0.6;
+}
+input#id_password:focus{
+    border:none;
+    outline:none;
+}
+
+
+
+
+
+.errorlist{
+    position: fixed;
+    color: #fff;
+    z-index: 2;
+    width: 370px;
+    margin-top:300px;
+    margin-left: -77px;
+}
+
+.errorlist li{
+    list-style: none;
+}
+
+.linkRecuperar{
+    display: block;
+    margin-top: -45px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.linkRecuperar:hover{
+    color:  #c096f0;
+}
+
+#recuperarSenha{
+    text-decoration: none;
+}
+
+#senhaAlterada{
+    margin-top: 70px;
+    margin-bottom: -40px;
+    font-size: 30px;
+    color: var(--hover-color);
+}
+
+.btnEntrar{
+    display: block;
+    margin-left: 55px;
+    width:220px;
+    border-radius: 25px;
+    background-image: linear-gradient(to right, #f3f3f3, #e2e4e0);
+    color:rgb(199, 114, 248);
+    font-weight: 700;
+    cursor: pointer;
+    height: 40px;
+    border: none;
+}
+
+a.linkBtnEntrar{
+    text-decoration: none;
+}
+
+.btnEntrar:hover{
+    background-image: linear-gradient(to right, #e9c1ff, #f3f3f3);
+}
+
+
+#h2Autenticacao{
+    margin-top: 40px
+}
+
+.caule{
+    position: absolute;
+    z-index: 100;
+    margin-top: -400px;
+    margin-left: 50px;
+}
+
+.caule img{
+    width: 400px;
+}
+
+.imgCirculo{
+    color: red;
+    width: 30px;
+    height: 30px;
+    position:absolute;
+    z-index: 100;
+    background: #e9c7fa;
+    border-radius: 50%;
+    margin-left: -250px;
+    margin-top: -200px;
+}
+
+.imgCirculo h1{
+    display: none;
+}
+
+.imgCirculo2{
+    color: red;
+    width: 5px;
+    height: 5px;
+    position:absolute;
+    z-index: 100;
+    background: #e9c7fa;
+    border-radius: 50%;
+    margin-left: -200px;
+    margin-top: -170px;
+}
+
+.imgCirculo2 h1{
+    display: none;
+}
+
+.caminhao{
+    position: absolute;
+    float: right;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+}
+
+
+
+@media (max-width: 768px){
+    .container{
+        max-width: 100%;
+    }
+
+    .inputs_center{
+        margin-left: 70px;
+    }
+
+    #user-icon{
+        margin-left: -127px;
+    }
+
+    #user-pass{
+        margin-left: -127px;
+    }
+
+    .btnEntrar{
+        margin-left: 55px;
+    }
+    
+}
+
+
+  

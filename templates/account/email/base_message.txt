@@ -1,0 +1,7 @@
+{% load i18n %}{% autoescape off %}{% blocktrans%}Olá, {% endblocktrans %}
+
+{% block content %}{% endblock %}
+
+{% blocktrans %}Obrigado, por utilizar nosso sistema - HU-Univasf!
+{% endblocktrans %}
+{% endautoescape %}

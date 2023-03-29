@@ -1,0 +1,7 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+{% load i18n %}
+
+{% block content %}{% autoescape off %}{% user_display user as user_display %}{% blocktrans %}Você esta recebendo este e-mail por causa do usuário: {{ user_display }} cadastrou este endereço no registro do nosso sistema.
+
+Para confirmar, clique no link: {{ activate_url }}{% endblocktrans %}{% endautoescape %}{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "spyFruit/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% block title %}Dashboard{% endblock %}
+
+<!--Styles específicos das páginas-->
+
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static '/css/spyFruit/dashboard/dashboard.css' %}">
+<!--Script do chartjs-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<div class="row mb-3">
+
+
+
+  <!-- Tempos de Operação dos Equipamentos -->
+  <!-- Quarto gráfico -->
+  <div class="">
+    <div class="card mb-4">
+      <div
+        class="card-header py-3 d-flex flex-row align-items-center justify-content-between dimensionando-titulo-direito">
+        <div>
+          <input type="date" id="datepicker" name="date">
+        </div>
+        <div id="todosDrops">
+          <ul id="ulDropMain">
+
+            <li id="liDropMain">
+              <!-- Seletor de Mês -->
+              <div id="dropdownEquipamento" class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonMesEquipamento"
+                  data-bs-toggle="dropdown" aria-expanded="false" style="display: none;">
+                  Qualquer Mes
+                </button>
+                <ul id="ulEquipamento" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <h6 class="dropdown-header">Selecione um Mes</h6>
+                  </li>
+                  {% for mes in meses_list %}
+                  <li><a class="dropdown-item" href="#" onclick="return salva_contexto_mes('{{mes}}');">
+                      {{ mes }}
+                    </a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+            <li id="liDropMain">
+              <!-- Seletor de Ano -->
+              <div id="dropdownEquipamento" class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonAnoEquipamento"
+                  data-bs-toggle="dropdown" aria-expanded="false" style="display: none;">
+                  Qualquer Ano
+                </button>
+                <ul id="ulEquipamento" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <li>
+                    <h6 class="dropdown-header">Selecione um Ano</h6>
+                  </li>
+                  {% for ano in anos_list %}
+                  <li><a class="dropdown-item" href="#" onclick="return salva_contexto_ano('{{ano}}');">
+                      {{ ano }}
+                    </a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </li>
+
+          </ul>
+          <!--FIM-->
+        </div>
+
+
+      </div>
+
+
+      <!-- Chart a ser construído -->
+      <div class="card-body" id="line_chart_position_t_equip">
+
+
+
+
+        <div class="chart-area" id="container_tempos_equipamentos">
+
+          <canvas id="relatorio_temperatura" width="250" height="92"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Scripts específicos das páginas-->
+{% block scripts %}
+
+
+<script src="{% static '/js/spyFruit/dashboard/dashboard.js' %}"></script>
+
+
+<!--Quando carregar a pagina iniciar automaticamente essas funções-->
+<script>
+  window.onload = function (event) {
+    let URL_text = '';
+
+    // Armazenar o valor selecionado no input de data
+    const inputData = document.querySelector('#datepicker');
+    inputData.addEventListener('change', (event) => {
+      const dataSelecionada = event.target.value;
+      localStorage.setItem('dataSelecionada', dataSelecionada);
+      var storedDate = localStorage.getItem("dataSelecionada");
+      //window.alert(storedDate);
+      URL_text = storedDate.value;
+      //window.alert(URL_text);
+      window.location.reload(true);
+      //Colocando o Ano selecionado
+
+      //filtrar_data = inputData.value
+      //URL_text += filtrar_data;
+
+    });
+
+
+    // Obter o valor do localStorage, se houver
+    var storedDate = localStorage.getItem("dataSelecionada");
+    if (storedDate) {
+      document.querySelector("#datepicker").value = storedDate;
+    }
+
+
+    fetch('/relatorio_uso/' + URL_text, { method: 'get', cache: 'no-cache', }
+    ).then(function (result) {
+      return result.json();
+    }).then(function (data) {
+
+      if (data.tempo_ativo == 0 && data.tempo_inativo == 0 && data.tempo_livre == 0) {
+        var graphs = document.getElementById("container_tempos_equipamentos");
+        graphs.style.display = "none";
+      } else {
+        var info_text = document.getElementById("text-chart-empty");
+        info_text.style.display = "none";
+      }
+    })
+    //URL_text = "2023-01-28";
+    valor = localStorage.getItem("dataSelecionada");
+    //window.alert(valor);
+    renderiza_relatorio_temperatura('/relatorio_temperatura/' + valor)
+    //link = renderiza_relatorio_temperatura('/relatorio_temperatura/' + valor)
+    //window.alert(link)
+  }
+</script>
+
+
+
+
+
+{% endblock scripts %}
+
+{% endblock %}
