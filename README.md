@@ -35,3 +35,7 @@ Utilizar o comando:
 ![login](https://user-images.githubusercontent.com/73910233/228676914-d2592415-e13f-4240-a80d-01b40920cbac.png)
 
 ![dashboard](https://user-images.githubusercontent.com/73910233/228676933-3eaccc49-1edd-416f-9880-4f0ec5fbf07f.png)
+
+## Observações
+Essa versão não está implementada CronJob para atualização dos dados via API, com isso é necessário acessar a rota /save_data para serem transferidos os dados para o banco de dados local.
+A rota de login é 127.0.0.1:8000/login
